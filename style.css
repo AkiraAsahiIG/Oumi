@@ -1,0 +1,347 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #fff0f5, transparent 40%),
+    linear-gradient(135deg, #24112d, #5a1938, #24112d);
+  color: #3b2028;
+}
+
+
+/* ================================
+   GENERAL PAGE
+================================ */
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 15px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ================================
+   PAGE 1 — LETTER OPENING
+================================ */
+
+#page1 {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.letter-opening {
+  text-align: center;
+  position: relative;
+}
+
+.letter-button {
+  width: 150px;
+  height: 150px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 7rem;
+
+  cursor: pointer;
+
+  animation: floating 2.5s ease-in-out infinite;
+
+  filter: drop-shadow(0 10px 25px rgba(255, 100, 160, 0.5));
+
+  transition: transform 0.3s ease;
+}
+
+.letter-button:hover {
+  transform: scale(1.12);
+}
+
+.letter-button:active {
+  transform: scale(0.92);
+}
+
+.open-text {
+  margin-top: 20px;
+
+  color: #ffe3ed;
+
+  font-size: 1.15rem;
+
+  letter-spacing: 1px;
+
+  animation: pulseText 2s infinite;
+}
+
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes floating {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulseText {
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* ================================
+   PAGE 2 — LETTER CARD
+================================ */
+
+#page2,
+#page3 {
+  align-items: flex-start;
+  overflow-y: auto;
+}
+
+.letter-card {
+  width: 100%;
+  max-width: 750px;
+
+  margin: 20px auto;
+
+  background:
+    linear-gradient(
+      rgba(255, 250, 245, 0.97),
+      rgba(255, 244, 235, 0.97)
+    );
+
+  border-radius: 18px;
+
+  padding: 30px 25px 35px;
+
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, 0.35);
+
+  border: 2px solid rgba(255, 210, 180, 0.7);
+
+  position: relative;
+}
+
+
+/* ================================
+   LETTER TOP
+================================ */
+
+.letter-top {
+  text-align: center;
+
+  font-size: 2.2rem;
+
+  margin-bottom: 20px;
+
+  animation: floating 3s ease-in-out infinite;
+}
+
+
+/* ================================
+   ARABIC TEXT
+================================ */
+
+.arabic-text {
+  direction: rtl;
+
+  text-align: right;
+
+  font-family:
+    "Noto Naskh Arabic",
+    "Amiri",
+    "Traditional Arabic",
+    "Arial",
+    sans-serif;
+
+  font-size: 21px;
+
+  line-height: 2.25;
+
+  color: #3c2027;
+
+  white-space: pre-line;
+
+  word-wrap: break-word;
+
+  overflow-wrap: break-word;
+}
+
+
+/* ================================
+   NEXT BUTTON
+================================ */
+
+.next-button {
+  display: none;
+
+  margin: 30px auto 5px;
+
+  padding: 13px 30px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background: linear-gradient(135deg, #d6336c, #9c2750);
+
+  color: white;
+
+  font-size: 1.15rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(156, 39, 80, 0.35);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.next-button:hover {
+  transform: translateY(-3px) scale(1.04);
+
+  box-shadow:
+    0 12px 25px rgba(156, 39, 80, 0.45);
+}
+
+.next-button:active {
+  transform: scale(0.96);
+}
+
+.show-button {
+  animation: buttonAppear 0.7s ease;
+}
+
+@keyframes buttonAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* ================================
+   PAGE 3
+================================ */
+
+.page-three-card {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+}
+
+.page-three-text {
+  min-height: 200px;
+}
+
+.page-three-heart {
+  text-align: center;
+
+  font-size: 3rem;
+
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+
+/* ================================
+   PHONE
+================================ */
+
+@media (max-width: 600px) {
+
+  .letter-card {
+    padding: 25px 18px 30px;
+
+    margin: 10px auto;
+  }
+
+  .arabic-text {
+    font-size: 18px;
+
+    line-height: 2.15;
+  }
+
+  .letter-button {
+    font-size: 6rem;
+
+    width: 130px;
+    height: 130px;
+  }
+
+  .open-text {
+    font-size: 1rem;
+  }
+
+}
+
+
+/* ================================
+   VERY SMALL PHONES
+================================ */
+
+@media (max-width: 380px) {
+
+  .letter-card {
+    padding: 20px 14px;
+  }
+
+  .arabic-text {
+    font-size: 17px;
+
+    line-height: 2.05;
+  }
+
+}
